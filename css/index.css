@@ -1,0 +1,58 @@
+.navbar-container {
+	width: inherit;
+	display: flex;
+	justify-content: center;
+	background-color: lightgreen;
+	height: 40px;
+	
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	margin: 0px;
+	font-family: 'Raleway','Sans-serif';
+}
+
+.navlink {
+	float: left;
+	display: block;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	height: inherit;
+	
+}
+
+.navbar {
+	list-style-type: none;
+	overflow: hidden;
+	height: inherit;	
+}
+
+.nav-a {
+	margin: 0 25px 0 25px;
+	color: darkviolet;
+	text-decoration: none;
+	line-height: 36px;
+}
+
+.logo img {
+	height: auto;
+	width: inherit;
+}
+
+#nav-logo {
+	float: left;
+	display: block;
+	border-right: 1px solid black;
+	height: inherit;
+	padding: 0 25px 0 25px;
+}
+
+.logo {
+	width: 40px;
+	
+}
