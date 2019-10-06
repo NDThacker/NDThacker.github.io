@@ -3,8 +3,6 @@
 	display: flex;
 	justify-content: center;
 	background-color: lightgreen;
-	height: 40px;
-	
 }
 
 * {
@@ -36,23 +34,14 @@ body {
 	margin: 0 25px 0 25px;
 	color: darkviolet;
 	text-decoration: none;
-	line-height: 36px;
+	line-height: 270%;
 }
 
 .logo img {
-	height: auto;
 	width: inherit;
-}
-
-#nav-logo {
-	float: left;
-	display: block;
-	border-right: 1px solid black;
-	height: inherit;
-	padding: 0 25px 0 25px;
 }
 
 .logo {
 	width: 40px;
-	
+	margin-right: 5px;	
 }
