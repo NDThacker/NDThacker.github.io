@@ -2,7 +2,7 @@
 	width: inherit;
 	display: flex;
 	justify-content: center;
-	background-color: lightgreen;
+	background-color: lightblue;
 }
 
 * {
@@ -12,6 +12,7 @@
 
 body {
 	font-family: 'Raleway','Sans-serif';
+	background-color: lightcyan;
 }
 
 .navlink {
@@ -45,4 +46,28 @@ body {
 .logo {
 	width: 40px;
 	margin-right: 15px;	
+}
+
+.content-div {
+	background-image: url('/background_theme.png');
+	width: 75%;
+	margin-top: 20px;
+	margin-left: 20px;
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 20px 0 0 15px;
+}
+
+.pic-container img {
+	border-radius: 50%;
+	width: 200px;	
+}
+
+.pic-container {
+	float: left;
+}
+
+.text-container {
+	float: left;
+	margin-right: 20px;
 }
