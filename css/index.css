@@ -15,6 +15,11 @@ body {
 	background-color: lightcyan;
 }
 
+.details {
+	list-style-type: none;
+	margin-left: 20px;
+}
+
 .navlink {
 	float: left;
 	display: block;
@@ -70,4 +75,13 @@ body {
 .text-container {
 	float: left;
 	margin-right: 20px;
+}
+
+.contacts {
+	margin-left: 20px;
+}
+
+.contact-link {
+	text-decoration: none;
+	margin-right: 10px;
 }
