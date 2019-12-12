@@ -8,7 +8,8 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel="stylesheet" media="screen" type="text/css" href="../css/index.css" />
 	<link rel="title icon" href="/icon.ico" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Proza Libre' rel='stylesheet'>
 
@@ -36,14 +37,50 @@
 	<main>
 		<div class="content-div">
 			<ul class="details">
-				<li><b>Write me at: </b>namanthacker98@gmail.com</li><br/>
-				<li><b>Call me at: </b>+91 9409986139</li><br/>
+				<li>
+					<div><b>Write me at</b> <button type="button" onclick="showDetails(0)" class="slider-button"><i
+								class="fa fa-angle-down fa-lg" aria-hidden="true"></i></button><span
+							class="slider slider-off"><br />namanthacker98@gmail.com</span></div>
+				</li><br />
+				<li>
+					<div><b>Call me at</b> <button type="button" onclick="showDetails(1)" class="slider-button"><i
+								class="fa fa-angle-down fa-lg" aria-hidden="true"></i></button><span
+							class="slider slider-off"><br />+91 9409986139</span></div>
+				</li><br />
 			</ul>
-			<label class="details">Useful Links</label><br/><br/>
+			<label class="details">Useful Links</label><br /><br />
 			<div class="contacts">
-				<a class="contact-link" href="https://github.com/NDThacker"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
-				<a class="contact-link" href="https://in.linkedin.com/in/naman-thacker-7b915a141"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>
-				<a class="contact-link" href="https://hackerrank.com/namanthacker25"><i class="fab fa-hackerrank fa-3x"></i></a>
+				<a class="contact-link" href="https://github.com/NDThacker"><i class="fa fa-github fa-3x"
+						aria-hidden="true"></i></a>
+				<a class="contact-link" href="https://in.linkedin.com/in/naman-thacker-7b915a141"><i
+						class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>
+				<a class="contact-link" href="https://hackerrank.com/namanthacker25"><i
+						class="fab fa-hackerrank fa-3x"></i></a>
 			</div>
 		</div>
 	</main>
+
+</body>
+<script>
+function showDetails(ind)
+{
+	var sliderSpan = document.getElementsByClassName("slider")[ind];
+	var classList = sliderSpan.classList;
+	if(classList.contains("slider-on"))
+	{
+		classList.remove(["slider-on"]);
+		classList.add(["slider-off"]);
+		document.getElementsByClassName("slider-button")[ind].innerHTML = "<i class='fa fa-angle-down fa-lg' aria-hidden='true'>";
+	}
+	else if(classList.contains("slider-off"))
+	{
+		classList.remove(["slider-off"]);
+		classList.add(["slider-on"]);
+		document.getElementsByClassName("slider-button")[ind].innerHTML = "<i class='fa fa-angle-up fa-lg' aria-hidden='true'>";
+	}
+}
+
+</script>
+
+
+</html>

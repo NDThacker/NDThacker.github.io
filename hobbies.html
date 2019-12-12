@@ -8,6 +8,9 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel="stylesheet" media="screen" type="text/css" href="../css/index.css" />
 	<link rel="title icon" href="/icon.ico" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Proza Libre' rel='stylesheet'>
 
 </head>
@@ -34,8 +37,44 @@
 	<main>
 		<div class="content-div">
 			<ul class="details">
-				<li><b>Sports: </b>Cricket, Football, Table Tennis, Pool & Snooker, Chess</li><br/>
-				<li><b>Leisure: </b>Singing, Reading, Yoga, Gym</li><br/>
+
+				<li>
+					<div><b>Sports</b> <button type="button" onclick="showDetails(0)" class="slider-button"><i
+								class="fa fa-angle-down fa-lg" aria-hidden="true"></i></button><span
+							class="slider slider-off"><br />Cricket, Football, Table Tennis, Pool & Snooker, Chess</span></div>
+				</li><br />
+				<li>
+					<div><b>Leisure</b> <button type="button" onclick="showDetails(1)" class="slider-button"><i
+								class="fa fa-angle-down fa-lg" aria-hidden="true"></i></button><span
+							class="slider slider-off"><br />Singing, Reading, Yoga, Gym</span></div>
+				</li><br />
 			</ul>
 		</div>
 	</main>
+
+</body>
+<script>
+
+function showDetails(ind)
+{
+	var sliderSpan = document.getElementsByClassName("slider")[ind];
+	var classList = sliderSpan.classList;
+	if(classList.contains("slider-on"))
+	{
+		classList.remove(["slider-on"]);
+		classList.add(["slider-off"]);
+		document.getElementsByClassName("slider-button")[ind].innerHTML = "<i class='fa fa-angle-down fa-lg' aria-hidden='true'>";
+	}
+	else if(classList.contains("slider-off"))
+	{
+		classList.remove(["slider-off"]);
+		classList.add(["slider-on"]);
+		document.getElementsByClassName("slider-button")[ind].innerHTML = "<i class='fa fa-angle-up fa-lg' aria-hidden='true'>";
+	}
+}
+
+</script>
+
+
+
+</html>
