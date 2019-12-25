@@ -38,7 +38,12 @@ body {
 
 .logo img {
 	width: inherit;
+	transition: all 1s;
 }
+.logo img:hover {
+	transform: scale(1.2, 1.2);
+}
+
 
 .logo {
 	width: 40px;
@@ -61,9 +66,13 @@ body {
 	height: inherit;
 	width: 145px;
 	text-align: center;
+	transition: all 0.8s;
 	
 }
 
+.navlink:hover {
+	box-shadow: 0 14px 18px black, 0 14px 18px black;
+}
 .navbar {
 	list-style-type: none;
 	overflow: hidden;
