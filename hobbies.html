@@ -37,23 +37,49 @@
 	<main>
 		<div class="content-div">
 			<ul class="details">
-
-				<li>
-					<div><b>Sports</b> <button type="button" onclick="showDetails(0)" class="slider-button"><i
-								class="fa fa-angle-down fa-lg" aria-hidden="true"></i></button><span
-							class="slider slider-off"><br />Cricket, Football, Table Tennis, Pool & Snooker, Chess</span></div>
-				</li><br />
-				<li>
-					<div><b>Leisure</b> <button type="button" onclick="showDetails(1)" class="slider-button"><i
-								class="fa fa-angle-down fa-lg" aria-hidden="true"></i></button><span
-							class="slider slider-off"><br />Singing, Reading, Yoga, Gym</span></div>
-				</li><br />
 			</ul>
 		</div>
 	</main>
 
 </body>
 <script>
+
+window.onload = function () {
+		let xhr;
+		try {
+			xhr = new XMLHttpRequest();
+		}
+		catch (e) {
+			try {
+				xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			catch (e) {
+				try {
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				catch (e) {
+					alert("Unsupported Browser..!\nYou might not find website working properly");
+				}
+			}
+		}
+		xhr.onload = function () {
+			let detailObj = JSON.parse(xhr.responseText);
+			let uList = document.getElementsByClassName("details")[0];
+			let indx = 0;
+			for (let prop in detailObj) {
+				let lItem = document.createElement("li");
+				lItem.innerHTML = detailObj[prop];
+				lItem.innerHTML = "<div><b>" + prop + 
+				"</b> <button type='button' onclick='showDetails(" + indx + ")' class='slider-button'><i class='fa fa-angle-down fa-lg' aria-hidden='true'></i></button><span class='slider slider-off'><br />" 
+				+ detailObj[prop] + "</span></div>";
+				uList.appendChild(lItem);
+				uList.appendChild(document.createElement("br"));
+				indx++;
+			}
+		}
+		xhr.open("GET", "/json/hobbies.json", true);
+		xhr.send(null);
+	}
 
 function showDetails(ind)
 {
@@ -72,9 +98,5 @@ function showDetails(ind)
 		document.getElementsByClassName("slider-button")[ind].innerHTML = "<i class='fa fa-angle-up fa-lg' aria-hidden='true'>";
 	}
 }
-
 </script>
-
-
-
 </html>

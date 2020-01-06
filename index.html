@@ -34,18 +34,57 @@
 	<main>
 		<div class="content-div">
 			<div class="pic-container">
-				<img src="./picture.jpg" alt="naman_image"/>
+				<img src="./picture.jpg" alt="naman_image" />
 			</div>
 			<div class="text-container">
 				<ul class="details">
-					<li><b>Naman Dinesh Thacker</b></li><br/>
-					<li>Bachelor's of Technology, From Dharmsinh Desai University, Nadiad, Gujarat.</li><br/>
-					<li>Passing year 2019</li><br/>
 				</ul>
 			</div>
 		</div>
 	</main>
 
 </body>
+<script>
+	window.onload = function () {
+		let xhr;
+		try {
+			xhr = new XMLHttpRequest();
+		}
+		catch (e) {
+			try {
+				xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			catch (e) {
+				try {
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				catch (e) {
+					alert("Unsupported Browser..!\nYou might not find website working properly");
+				}
+			}
+		}
+		xhr.onload = function() {
+			let detailObj = JSON.parse(xhr.responseText);
+			let uList = document.getElementsByClassName("details")[0];
+
+			for(let prop in detailObj)
+			{
+				let lItem = document.createElement("li");
+				if(prop == "Name")
+				{
+					lItem.innerHTML = "<b>" + detailObj[prop] + "</b>";
+				}
+				else {
+					lItem.innerHTML = detailObj[prop];
+				}
+				uList.appendChild(lItem);
+				uList.appendChild(document.createElement("br"));
+			}
+		}
+		xhr.open("GET", "/json/index.json", true);
+		xhr.send(null);
+	}
+
+</script>
 
 </html>

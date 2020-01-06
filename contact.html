@@ -37,18 +37,8 @@
 	<main>
 		<div class="content-div">
 			<ul class="details">
-				<li>
-					<div><b>Write me at</b> <button type="button" onclick="showDetails(0)" class="slider-button"><i
-								class="fa fa-angle-down fa-lg" aria-hidden="true"></i></button><span
-							class="slider slider-off"><br />namanthacker98@gmail.com</span></div>
-				</li><br />
-				<li>
-					<div><b>Call me at</b> <button type="button" onclick="showDetails(1)" class="slider-button"><i
-								class="fa fa-angle-down fa-lg" aria-hidden="true"></i></button><span
-							class="slider slider-off"><br />+91 9409986139</span></div>
-				</li><br />
 			</ul>
-			<label class="details">Useful Links</label><br /><br />
+			<label class="links">Useful Links</label><br /><br />
 			<div class="contacts">
 				<a class="contact-link" href="https://github.com/NDThacker"><i class="fa fa-github fa-3x"
 						aria-hidden="true"></i></a>
@@ -62,23 +52,56 @@
 
 </body>
 <script>
-function showDetails(ind)
-{
-	var sliderSpan = document.getElementsByClassName("slider")[ind];
-	var classList = sliderSpan.classList;
-	if(classList.contains("slider-on"))
-	{
-		classList.remove(["slider-on"]);
-		classList.add(["slider-off"]);
-		document.getElementsByClassName("slider-button")[ind].innerHTML = "<i class='fa fa-angle-down fa-lg' aria-hidden='true'>";
+	window.onload = function () {
+		let xhr;
+		try {
+			xhr = new XMLHttpRequest();
+		}
+		catch (e) {
+			try {
+				xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			catch (e) {
+				try {
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				catch (e) {
+					alert("Unsupported Browser..!\nYou might not find website working properly");
+				}
+			}
+		}
+		xhr.onload = function () {
+			let detailObj = JSON.parse(xhr.responseText);
+			let uList = document.getElementsByClassName("details")[0];
+			let indx = 0;
+			for (let prop in detailObj) {
+				let lItem = document.createElement("li");
+				lItem.innerHTML = detailObj[prop];
+				lItem.innerHTML = "<div><b>" + prop + 
+				"</b> <button type='button' onclick='showDetails(" + indx + ")' class='slider-button'><i class='fa fa-angle-down fa-lg' aria-hidden='true'></i></button><span class='slider slider-off'><br />" 
+				+ detailObj[prop] + "</span></div>";
+				uList.appendChild(lItem);
+				uList.appendChild(document.createElement("br"));
+				indx++;
+			}
+		}
+		xhr.open("GET", "/json/contact.json", true);
+		xhr.send(null);
 	}
-	else if(classList.contains("slider-off"))
-	{
-		classList.remove(["slider-off"]);
-		classList.add(["slider-on"]);
-		document.getElementsByClassName("slider-button")[ind].innerHTML = "<i class='fa fa-angle-up fa-lg' aria-hidden='true'>";
+	function showDetails(ind) {
+		var sliderSpan = document.getElementsByClassName("slider")[ind];
+		var classList = sliderSpan.classList;
+		if (classList.contains("slider-on")) {
+			classList.remove(["slider-on"]);
+			classList.add(["slider-off"]);
+			document.getElementsByClassName("slider-button")[ind].innerHTML = "<i class='fa fa-angle-down fa-lg' aria-hidden='true'>";
+		}
+		else if (classList.contains("slider-off")) {
+			classList.remove(["slider-off"]);
+			classList.add(["slider-on"]);
+			document.getElementsByClassName("slider-button")[ind].innerHTML = "<i class='fa fa-angle-up fa-lg' aria-hidden='true'>";
+		}
 	}
-}
 
 </script>
 
